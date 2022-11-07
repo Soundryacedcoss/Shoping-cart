@@ -3,9 +3,7 @@ import { DataContext } from './Product'
 export const Cart = () => {
 const productData=useContext(DataContext)
 console.log(productData);
-  return (
-    <div>
-      hgjgvhjkguy
-    </div>
-  )
+return(
+  <div></div>
+);
 }
