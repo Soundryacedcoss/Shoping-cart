@@ -150,3 +150,7 @@ body{
 .Navbar{
   background-color: #c5aa6a;
 }
+/* table */
+td,th{
+	font-size: 50px;
+}
