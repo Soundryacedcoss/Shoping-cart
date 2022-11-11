@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from './App'
-import { Navigate } from "react-router-dom";
-
 export const Cart = () => {
 const[Price,setPrice]=useState()
-const[Display,setDisplay]=useState({Display:"none"})
 const productData=useContext(DataContext)
 const IncreaseHandler=(val)=>{
   console.log('hii');
@@ -19,7 +16,6 @@ const DecreseHandler=(val)=>{
   for (let i = 0; i < productData.cartArr.length; i++) {
     if(val===productData.cartArr[i].id){
       if(productData.cartArr[i].quantity<=1){
-        // productData.cartArr.quantity -=1
         productData.cartArr.splice(i,1)
         productData.setCartArr([...productData.cartArr])
       }
@@ -30,6 +26,8 @@ const DecreseHandler=(val)=>{
     }
   }
 }
+ 
+console.log(productData.cartArr);
 let totalprice=0;
 useEffect (()=>{
   for (let i = 0; i < productData.cartArr.length; i++) {
@@ -45,13 +43,14 @@ return(
  <center>
   <table border="2px">
     <tr>
-      <th>Id</th><th>Name</th><th>Price</th><th>Quantity</th>
+      <th>Id</th><th>Name</th><th>Price</th> <th>Product</th> <th>Quantity</th>
       </tr>
     {productData.cartArr.map((item)=>
     <tr>
       <td>{item.id}</td>
       <td>{item.name}</td>
       <td>{item.price}</td>
+      <td><img src={item.image} alt="" /></td>
       <td><button onClick={() => IncreaseHandler(item.id)}>+</button>{item.quantity}<button onClick={() => DecreseHandler(item.id)}>-</button></td>
       </tr>
       )}
