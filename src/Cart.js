@@ -1,13 +1,46 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from './App'
+import { Navigate } from "react-router-dom";
+
 export const Cart = () => {
-  const[Price,totalPrice]=useState()
-// const[dataArr,setDataArr]=useState([])
+const[Price,setPrice]=useState()
+const[Display,setDisplay]=useState({Display:"none"})
 const productData=useContext(DataContext)
-console.log(productData.cartArr);
-for (let i = 0; i < productData.cartArr.length; i++) {
-console.log(productData.cartArr.quantity);
+const IncreaseHandler=(val)=>{
+  console.log('hii');
+  for (let i = 0; i < productData.cartArr.length; i++) {
+    if(val===productData.cartArr[i].id){
+      productData.cartArr[i].quantity+=1
+      productData.setCartArr([...productData.cartArr])
+    }
+  }
 }
+const DecreseHandler=(val)=>{
+  for (let i = 0; i < productData.cartArr.length; i++) {
+    if(val===productData.cartArr[i].id){
+      if(productData.cartArr[i].quantity<=1){
+        // productData.cartArr.quantity -=1
+        productData.cartArr.splice(i,1)
+        productData.setCartArr([...productData.cartArr])
+      }
+      else{
+        productData.cartArr[i].quantity -=1
+        productData.setCartArr([...productData.cartArr])
+      }
+    }
+  }
+}
+let totalprice=0;
+useEffect (()=>{
+  for (let i = 0; i < productData.cartArr.length; i++) {
+    totalprice+=productData.cartArr[i].quantity*productData.cartArr[i].price
+ console.log(productData.cartArr[i].quantity*productData.cartArr[i].price);
+ setPrice(totalprice)
+ console.log(Price);
+//  <Navigate to='/' ></Navigate>
+}
+})
+
 return(
  <center>
   <table border="2px">
@@ -19,11 +52,12 @@ return(
       <td>{item.id}</td>
       <td>{item.name}</td>
       <td>{item.price}</td>
-      <td><button>+</button>{item.quantity}<button>-</button></td>
+      <td><button onClick={() => IncreaseHandler(item.id)}>+</button>{item.quantity}<button onClick={() => DecreseHandler(item.id)}>-</button></td>
       </tr>
       )}
+       <p >{Price}</p>
   </table>
-  <p>{Price}</p>
+ 
   </center>
 );
 }
