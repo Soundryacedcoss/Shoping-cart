@@ -7,7 +7,9 @@ export const Cart = () => {
   const [Price, setPrice] = useState();
   const[Emptymsg,setEmptyMsg]=useState({display:"none"})
   const[Display,setDisplay]=useState()
+  // storing value from context
   const productData = useContext(DataContext);
+  // increase Button Functionaliy
   const IncreaseHandler = (val) => {
     console.log("hii");
     for (let i = 0; i < productData.cartArr.length; i++) {
@@ -17,6 +19,7 @@ export const Cart = () => {
       }
     }
   };
+  // decrese button functinality
   const DecreseHandler = (val) => {
     for (let i = 0; i < productData.cartArr.length; i++) {
       if (val === productData.cartArr[i].id) {
@@ -31,8 +34,7 @@ export const Cart = () => {
       }
     }
   };
-
-  console.log(productData.cartArr);
+  // Adding Price here
   let totalprice = 0;
   useEffect(() => {
     for (let i = 0; i < productData.cartArr.length; i++) {
@@ -50,13 +52,15 @@ export const Cart = () => {
       setEmptyMsg({display:"block"})
     }
   },[productData.cartArr]);
+  // Buy Button function
   const BuyButtonHandler=(e)=>{
     if(e.target.value=true){
       alert("Thank you for Shopping 😊")
     }
 
   }
-  function refreshPage() {
+// Here i am deleting all item from cart 
+  function EmptyButtonHandler() {
     window.location.reload(false);
   }
   return (
@@ -93,12 +97,11 @@ export const Cart = () => {
         ) )}
         
       </div>
-      
       <p style={Display} className="TotalPrice">Total: {Price}</p> <br />
        <br />
        <div style={Display}>
        <button onClick={BuyButtonHandler} className="Button1">Buy Now</button>
-      <button className="Button1" onClick={refreshPage}>Empty Cart</button>
+      <button className="Button1" onClick={EmptyButtonHandler}>Empty Cart</button>
       </div>
     </center>
   );
