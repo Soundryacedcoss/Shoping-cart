@@ -4,7 +4,7 @@ import img2 from './images/tennis.png'
 import img3 from './images/basketball.png'
 import img4 from './images/table-tennis.png'
 import img5 from './images/soccer.png'
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import products from './data';
 import { DataContext } from './App'
 export const Product = () => {
@@ -36,8 +36,7 @@ export const Product = () => {
 				<li><a href='//'>Home</a></li>
 				<li><a href="//">Products</a></li>
 				<li><a href="//">Contact</a></li>
-        <li><Link to={'/Cart'}>Cart{data.cartArr.length}</Link></li> 
-		
+                <li><Link to={'/Cart'}>Cart{data.cartArr.length}</Link></li>
 			</ul>
 			
 		</nav>

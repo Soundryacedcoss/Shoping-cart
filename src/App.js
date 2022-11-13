@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import React, { createContext, useState } from 'react'
 import './App.css';
 import { Cart } from './Cart';
-import { Navbar } from './Navbar';
 import { Product } from './Product';
+import { Footer } from './Footer';
 export const DataContext=createContext()
 function App() {
 	const[cartArr,setCartArr]=useState([])
@@ -16,6 +16,7 @@ function App() {
 	<Route path='/Cart' element={<Cart/>}></Route>
 	</Routes>
 	</DataContext.Provider>
+  <Footer/>
     <div>
     </div>
 	<p id="p1"></p>

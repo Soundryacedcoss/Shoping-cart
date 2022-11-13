@@ -154,3 +154,81 @@ body{
 td,th{
 	font-size: 50px;
 }
+.flex{
+	display: flex;
+	justify-content: center;
+	column-gap: 5%;
+}
+.cartDiv{
+	padding: 3%;
+	border: solid dodgerblue 1px;
+	margin-left: 25%;
+	margin-right:25%;
+	/* margin-top: 5%; */
+	background-color: white;
+   color: #112A46;
+   border-radius: 20%;
+}
+/* .img{
+	width: 50%;
+	height: 5%;
+	padding: 1%;
+} */
+.cartDiv {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	width: 40%;
+  }
+  
+  .cartDiv:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .button {
+	background-color: dodgerblue; /* Green */
+	border: none;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 50%;
+  }
+  p{
+	margin-top: 5%;
+	font-size: 20px;
+  }
+  .ProductNameDiv{
+	width: 20%;
+  }
+  b{
+	font-size: 20px;
+  }
+ .CartNavbar{
+    background-color: #3e9cbf;
+	padding-bottom: 4%;
+ }
+ .Footer{
+	background-color: #000000;
+	color: white;
+	font-size: 25px;
+	padding: 4%;
+ }
+ .TotalPrice{
+ background-color: #dfe7ea;
+ width: 20%;
+ padding: 1%;
+ border-radius: 20px;
+ }
+ .flex2{
+	display: flex;
+ }
+ .Button1{
+ background-color: #dfe7ea;
+ width: 20%;
+ padding: 1%;
+ border-radius: 20px;
+ border-style: none;
+ }
